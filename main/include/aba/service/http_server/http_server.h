@@ -1,0 +1,16 @@
+#ifndef __HTTP_SERVER_HTTP_SERVER_H
+#define __HTTP_SERVER_HTTP_SERVER_H
+
+#include "esp_err.h"
+#include "esp_http_server.h"
+
+///@{
+extern const uint8_t _aba_404_html_start[] asm("_binary_404_min_html_start"); /*!< @brief Start address of the embedded 404 HTML file. */
+extern const uint8_t _aba_404_html_end[] asm("_binary_404_min_html_end");     /*!< @brief End address of the embedded 404 HTML file. */
+///@}
+
+esp_err_t abaHttpServerSetup(httpd_handle_t *server, uint16_t port);
+
+esp_err_t _abaHttpServer404(httpd_req_t *req, httpd_err_code_t err);
+
+#endif
